@@ -33,21 +33,28 @@ Other scripts: `npm run lint`.
 ## Project structure
 
 ```
-src/app/            layout, global styles (design tokens), page
-src/components/     one component per section, plus icons
-public/images/      photos exported from Figma (WebP) and the CTA decoration (SVG)
+src/app/                    layout, metadata, global styles (design tokens), page
+src/components/layout/      Header, Footer
+src/components/sections/    one component per page section
+src/components/ui/          reusable pieces: ButtonLink, SectionHeading, AvatarStack,
+                            CategoryCard, StepItem, ContactItem, FormField, icons
+src/data/content.ts         typed mock content (navigation, categories, steps, stats...)
+public/images/              photos exported from Figma (WebP) and the CTA decoration (SVG)
 ```
 
 ## Implementation decisions
 
 - **Design tokens in one place.** Colors, shadows, type scale and button styles live in `src/app/globals.css` using Tailwind v4 `@theme` and `@utility`. Type styles mirror the Figma text styles (`Desktop/H1`, `Mobile/H1`, ...) and switch at the `lg` breakpoint.
+- **Reusable components with typed props.** Anything that repeats in the design is a component in `src/components/ui` with a typed API (`ButtonLink` variants, `SectionHeading` alignment and tone, `FormField` for inputs and textareas). Sections only compose them.
+- **Content separated from markup.** All copy that repeats or comes in lists lives in `src/data/content.ts` with exported types, standing in for a CMS or API.
 - **Server components by default.** Only the header (mobile menu) and the contact form ship client-side JavaScript.
 - **One layout breakpoint for the two designs.** Mobile layout up to 1023px, desktop from 1024px. Between the two Figma widths the layout is fluid: grids go to two columns on tablets and large headings scale with `clamp()` so 1024px screens do not overflow.
-- **Images.** Exported from Figma at 2x, converted to WebP and served through `next/image` with explicit `sizes`. The hero image is preloaded since it is the LCP element.
+- **Images.** Exported from Figma at 2x, converted to WebP and served through `next/image` with explicit `sizes`. The hero image is preloaded with `fetchPriority="high"` since it is the LCP element.
+- **Loading.** Fonts are self-hosted through `next/font` with `display: swap`, CSS is inlined in the document (`experimental.inlineCss`, a good fit for a single Tailwind page) and the build targets modern browsers only, so no legacy polyfills are shipped.
 - **Final CTA decoration.** The scattered shapes and icons are a single decorative SVG (10 KB, hidden from assistive tech) positioned behind real HTML content, instead of a dozen absolutely positioned elements.
 - **Animations without JavaScript.** Entrance animations use CSS scroll-driven animations (`animation-timeline: view()`) as progressive enhancement, and everything is disabled under `prefers-reduced-motion`.
 - **Contact form.** Uses the browser Constraint Validation API with custom rendering: errors are shown inline, linked with `aria-describedby`, and focus moves to the first invalid field. There is no backend, so submission is simulated and ends in a success message.
-- **Accessibility.** Semantic landmarks, one `h1`, labelled sections, skip link, visible focus styles, `aria-expanded`/`aria-controls` on the menu button, Escape closes the menu, decorative images have empty `alt`, touch targets are at least 44px.
+- **Accessibility.** Semantic landmarks, one `h1`, labelled sections, skip link, visible focus styles, `aria-expanded`/`aria-controls` on the menu button, Escape closes the menu, content images have descriptive `alt` text and decorative ones are hidden, touch targets are at least 44px.
 - **States not present in the design.** Hover, focus, the open mobile menu and form validation states were not designed, so I created them following the existing tokens.
 
 ## Design inconsistencies and how I handled them
@@ -82,5 +89,5 @@ How I verified the output:
 
 - compared every section side by side with the Figma frames at 1280px and 402px, including section heights;
 - ran `npm run lint`, the TypeScript check and a production build;
-- tested the mobile menu and the form (empty, invalid and valid submissions) with keyboard only;
-- ran Lighthouse against the production build.
+- exercised the mobile menu and the form (empty, invalid and valid submissions);
+- ran Lighthouse against the production build: 100 / 100 / 100 / 100 on desktop and 96 / 100 / 100 / 100 on mobile (performance, accessibility, best practices, SEO).
