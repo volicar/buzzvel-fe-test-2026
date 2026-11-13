@@ -56,7 +56,7 @@ public/images/              photos exported from Figma (WebP) and the CTA decora
 - **Final CTA decoration.** The scattered shapes and icons are a single decorative SVG (10 KB, hidden from assistive tech) positioned behind real HTML content, instead of a dozen absolutely positioned elements.
 - **Animations without JavaScript.** Entrance animations use CSS scroll-driven animations (`animation-timeline: view()`) as progressive enhancement, and everything is disabled under `prefers-reduced-motion`.
 - **Contact form.** Uses the browser Constraint Validation API with custom rendering: errors are shown inline in English regardless of browser language, linked with `aria-describedby`, and focus moves to the first invalid field. There is no backend, so submission is simulated and ends in a success message.
-- **Accessibility.** Semantic landmarks, one `h1`, labelled sections, skip link, visible focus styles, `aria-expanded`/`aria-controls` on the menu button, Escape closes the menu, content images have descriptive `alt` text and decorative ones are hidden, touch targets are at least 44px.
+- **Accessibility.** Semantic landmarks, one `h1`, labelled sections, skip link, visible focus styles, `aria-expanded`/`aria-controls` on the menu button, Escape closes the menu, content images have descriptive `alt` text and decorative ones are hidden, the menu button is a 44px touch target.
 - **States not present in the design.** Hover, focus, the open mobile menu and form validation states were not designed, so I created them following the existing tokens.
 
 ## Design inconsistencies and how I handled them
