@@ -75,7 +75,13 @@ public/images/              photos exported from Figma (WebP) and the CTA decora
 
 ## Time spent
 
-_To be filled in before submitting._
+Around 7 hours in total, roughly:
+
+- 1h reading the Figma file and collecting measurements, text styles and assets;
+- 3h building the sections for mobile and desktop;
+- 1.5h reviewing against the design and adjusting spacing, states and accessibility;
+- 1h refactoring into reusable typed components and a content file;
+- 0.5h on performance checks, the production build and this README.
 
 ## AI tools
 
