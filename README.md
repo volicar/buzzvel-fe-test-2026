@@ -2,6 +2,8 @@
 
 Landing page for "luma.", built from the Figma file provided in the Buzzvel Front-End Engineer coding challenge.
 
+Live preview: https://buzzvel-fe-test-chi.vercel.app
+
 ## Stack
 
 - Next.js 16 (App Router) + React 19
@@ -96,4 +98,4 @@ How I verified the output:
 - compared every section side by side with the Figma frames at 1280px and 402px, including section heights;
 - ran `npm run lint`, the TypeScript check and a production build;
 - exercised the mobile menu and the form (empty, invalid and valid submissions);
-- ran Lighthouse against the production build: 100 / 100 / 100 / 100 on desktop and 96 / 100 / 100 / 100 on mobile (performance, accessibility, best practices, SEO).
+- ran Lighthouse against the deployed build: 100 / 100 / 100 / 100 on desktop and 98–99 / 100 / 100 / 100 on mobile (performance, accessibility, best practices, SEO).
