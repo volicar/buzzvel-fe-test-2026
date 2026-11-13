@@ -15,10 +15,19 @@ const jakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
+const title = "Luma — Practical learning for curious people";
+const description =
+  "Practical courses taught by people who do the work every day. Learn design, technology, business and more, one focused lesson at a time.";
+
 export const metadata: Metadata = {
-  title: "Luma — Practical learning for curious people",
-  description:
-    "Practical courses taught by people who do the work every day. Learn design, technology, business and more, one focused lesson at a time.",
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    type: "website",
+    siteName: "Luma",
+  },
 };
 
 export const viewport: Viewport = {
