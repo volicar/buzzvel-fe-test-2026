@@ -49,11 +49,11 @@ public/images/              photos exported from Figma (WebP) and the CTA decora
 - **Content separated from markup.** All copy that repeats or comes in lists lives in `src/data/content.ts` with exported types, standing in for a CMS or API.
 - **Server components by default.** Only the header (mobile menu) and the contact form ship client-side JavaScript.
 - **One layout breakpoint for the two designs.** Mobile layout up to 1023px, desktop from 1024px. Between the two Figma widths the layout is fluid: grids go to two columns on tablets and large headings scale with `clamp()` so 1024px screens do not overflow.
-- **Images.** Exported from Figma at 2x, converted to WebP and served through `next/image` with explicit `sizes`. The hero image is preloaded with `fetchPriority="high"` since it is the LCP element.
+- **Images.** Exported from Figma at 2x, converted to WebP and served through `next/image` with explicit `sizes`. The hero image loads eagerly with `fetchPriority="high"` since it is the LCP element.
 - **Loading.** Fonts are self-hosted through `next/font` with `display: swap`, CSS is inlined in the document (`experimental.inlineCss`, a good fit for a single Tailwind page) and the build targets modern browsers only, so no legacy polyfills are shipped.
 - **Final CTA decoration.** The scattered shapes and icons are a single decorative SVG (10 KB, hidden from assistive tech) positioned behind real HTML content, instead of a dozen absolutely positioned elements.
 - **Animations without JavaScript.** Entrance animations use CSS scroll-driven animations (`animation-timeline: view()`) as progressive enhancement, and everything is disabled under `prefers-reduced-motion`.
-- **Contact form.** Uses the browser Constraint Validation API with custom rendering: errors are shown inline, linked with `aria-describedby`, and focus moves to the first invalid field. There is no backend, so submission is simulated and ends in a success message.
+- **Contact form.** Uses the browser Constraint Validation API with custom rendering: errors are shown inline in English regardless of browser language, linked with `aria-describedby`, and focus moves to the first invalid field. There is no backend, so submission is simulated and ends in a success message.
 - **Accessibility.** Semantic landmarks, one `h1`, labelled sections, skip link, visible focus styles, `aria-expanded`/`aria-controls` on the menu button, Escape closes the menu, content images have descriptive `alt` text and decorative ones are hidden, touch targets are at least 44px.
 - **States not present in the design.** Hover, focus, the open mobile menu and form validation states were not designed, so I created them following the existing tokens.
 

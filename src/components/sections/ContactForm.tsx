@@ -10,12 +10,28 @@ type Status = "idle" | "sending" | "sent";
 
 const fields: Field[] = ["name", "email", "message"];
 
+const requiredMessages: Record<Field, string> = {
+  name: "Please enter your name.",
+  email: "Please enter your email address.",
+  message: "Please tell us how we can help.",
+};
+
+function getMessage(control: Control) {
+  const { validity } = control;
+
+  if (validity.valid) return "";
+  if (validity.valueMissing) return requiredMessages[control.name as Field];
+  if (validity.typeMismatch) return "Please enter a valid email address.";
+  if (validity.tooShort) return `Please use at least ${control.minLength} characters.`;
+  return control.validationMessage;
+}
+
 export function ContactForm() {
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<Status>("idle");
 
   const validate = (control: Control) => {
-    setErrors((current) => ({ ...current, [control.name]: control.validationMessage }));
+    setErrors((current) => ({ ...current, [control.name]: getMessage(control) }));
     return control.validity.valid;
   };
 
@@ -50,7 +66,7 @@ export function ContactForm() {
       noValidate
       onSubmit={handleSubmit}
       aria-labelledby="form-title"
-      className="reveal flex flex-col gap-6 rounded-2xl border border-line bg-white px-5 py-6 shadow-card lg:w-[540px] lg:shrink-0 lg:p-10"
+      className="reveal flex flex-col gap-6 rounded-2xl border border-line bg-white px-5 py-6 shadow-card lg:w-1/2 lg:shrink-0 lg:p-10 xl:w-[540px]"
     >
       <div className="flex flex-col gap-2">
         <h3 id="form-title" className="font-display text-xl font-bold leading-8">

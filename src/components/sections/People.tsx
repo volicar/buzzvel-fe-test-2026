@@ -31,7 +31,7 @@ export function People() {
           />
           {photoColumns.map((column) => (
             <div
-              key={column.className}
+              key={column.photos[0].src}
               className={`relative flex flex-col gap-2 lg:gap-[13px] ${column.className}`}
             >
               {column.photos.map((photo) => (

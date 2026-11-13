@@ -7,7 +7,7 @@ export function Footer() {
       <div className="wrap">
         <div className="grid grid-cols-2 gap-10 lg:grid-cols-[2fr_1fr_1fr_1fr] lg:gap-8">
           <div className="col-span-2 lg:col-span-1">
-            <Logo role="img" aria-hidden={undefined} aria-label="Luma" />
+            <Logo label="Luma" />
             <p className="mt-3 text-body text-haze lg:max-w-[240px]">
               Practical learning for curious people.
             </p>

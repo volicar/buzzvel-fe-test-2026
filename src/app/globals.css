@@ -208,6 +208,7 @@
   line-height: 1.5rem;
   font-weight: 700;
   text-align: center;
+  white-space: nowrap;
   transition:
     background-color 0.2s,
     border-color 0.2s,

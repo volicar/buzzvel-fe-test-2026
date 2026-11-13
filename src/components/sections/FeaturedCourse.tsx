@@ -11,14 +11,14 @@ export function FeaturedCourse() {
       aria-labelledby="featured-title"
       className="section-y bg-primary text-white"
     >
-      <div className="wrap grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-[60px]">
+      <div className="wrap grid gap-10 md:grid-cols-2 md:items-center xl:gap-[60px]">
         <div className="reveal relative">
-          <div className="relative aspect-[362/280] overflow-hidden rounded-2xl lg:aspect-[538/408]">
+          <div className="relative aspect-[362/280] overflow-hidden rounded-2xl md:aspect-[538/408]">
             <Image
               src={featuredCourse.image.src}
               alt={featuredCourse.image.alt}
               fill
-              sizes="(min-width: 1024px) 538px, 100vw"
+              sizes="(min-width: 1280px) 538px, (min-width: 768px) 45vw, 100vw"
               className="object-cover"
             />
           </div>
@@ -43,7 +43,7 @@ export function FeaturedCourse() {
               </li>
             ))}
           </ul>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <ButtonLink href="#contact" variant="sun">
               View course
             </ButtonLink>

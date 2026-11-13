@@ -1,18 +1,21 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { CloseIcon, Logo, MenuIcon } from "@/components/ui/icons";
 import { navLinks } from "@/data/content";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!open) return;
 
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key !== "Escape") return;
+      setOpen(false);
+      toggleRef.current?.focus();
     };
     const desktop = window.matchMedia("(min-width: 1024px)");
     const onChange = () => desktop.matches && setOpen(false);
@@ -56,6 +59,7 @@ export function Header() {
         </div>
 
         <button
+          ref={toggleRef}
           type="button"
           aria-expanded={open}
           aria-controls="mobile-menu"

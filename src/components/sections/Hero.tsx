@@ -7,7 +7,7 @@ import { learnerAvatars } from "@/data/content";
 export function Hero() {
   return (
     <section className="section-y overflow-x-clip">
-      <div className="wrap flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,500px)] lg:items-center lg:gap-[60px]">
+      <div className="wrap flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)] lg:items-center xl:grid-cols-[minmax(0,1fr)_500px] xl:gap-[60px]">
         <div>
           <p className="text-overline text-primary">Learn at your own pace</p>
           <h1 className="mt-4 text-h1">Build skills that actually move you forward.</h1>
@@ -15,7 +15,7 @@ export function Hero() {
             Practical courses taught by people who do the work every day. Learn design, technology,
             business and more — one focused lesson at a time.
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <ButtonLink href="#courses">Explore courses</ButtonLink>
             <ButtonLink href="#how-it-works" variant="outline">
               See how it works
@@ -43,9 +43,9 @@ export function Hero() {
               src="/images/hero.webp"
               alt="Person focused on learning at their laptop"
               fill
-              preload
+              loading="eager"
               fetchPriority="high"
-              sizes="(min-width: 1024px) 500px, (min-width: 402px) 346px, 90vw"
+              sizes="(min-width: 1280px) 500px, (min-width: 1024px) 40vw, (min-width: 402px) 346px, 90vw"
               className="object-cover"
             />
           </div>
