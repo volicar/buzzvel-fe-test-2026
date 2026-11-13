@@ -1,14 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { CloseIcon, Logo, MenuIcon } from "./icons";
-
-const links = [
-  { label: "Courses", href: "#courses" },
-  { label: "For Teams", href: "#featured" },
-  { label: "Community", href: "#community" },
-  { label: "About", href: "#how-it-works" },
-];
+import { ButtonLink } from "@/components/ui/ButtonLink";
+import { CloseIcon, Logo, MenuIcon } from "@/components/ui/icons";
+import { navLinks } from "@/data/content";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -41,7 +36,7 @@ export function Header() {
 
         <nav aria-label="Main" className="hidden lg:block">
           <ul className="flex items-center gap-8">
-            {links.map((link) => (
+            {navLinks.map((link) => (
               <li key={link.label}>
                 <a href={link.href} className="text-body text-muted transition-colors hover:text-ink">
                   {link.label}
@@ -55,9 +50,9 @@ export function Header() {
           <a href="#contact" className="px-4 py-2.5 text-body text-muted transition-colors hover:text-ink">
             Log in
           </a>
-          <a href="#courses" className="btn btn-primary px-5 py-[9px]">
+          <ButtonLink href="#courses" className="px-5 py-[9px]">
             Start learning
-          </a>
+          </ButtonLink>
         </div>
 
         <button
@@ -79,7 +74,7 @@ export function Header() {
       >
         <nav aria-label="Mobile" className="wrap flex flex-col gap-6 py-6">
           <ul className="flex flex-col">
-            {links.map((link) => (
+            {navLinks.map((link) => (
               <li key={link.label}>
                 <a href={link.href} onClick={close} className="block py-3 text-sub1 font-medium text-ink">
                   {link.label}
@@ -88,12 +83,12 @@ export function Header() {
             ))}
           </ul>
           <div className="flex flex-col gap-3">
-            <a href="#courses" onClick={close} className="btn btn-primary">
+            <ButtonLink href="#courses" onClick={close}>
               Start learning
-            </a>
-            <a href="#contact" onClick={close} className="btn btn-outline">
+            </ButtonLink>
+            <ButtonLink href="#contact" variant="outline" onClick={close}>
               Log in
-            </a>
+            </ButtonLink>
           </div>
         </nav>
       </div>

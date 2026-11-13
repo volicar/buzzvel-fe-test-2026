@@ -1,11 +1,6 @@
 import Image from "next/image";
-import { QuoteIcon } from "./icons";
-
-const stats = [
-  { value: "24K+", label: "active learners" },
-  { value: "120+", label: "expert-led courses" },
-  { value: "92%", label: "complete their first course" },
-];
+import { QuoteIcon } from "@/components/ui/icons";
+import { stats, testimonial } from "@/data/content";
 
 export function Testimonial() {
   return (
@@ -13,21 +8,20 @@ export function Testimonial() {
       <div className="wrap flex flex-col gap-[60px] lg:flex-row lg:items-start lg:justify-between">
         <figure className="reveal max-w-[600px]">
           <QuoteIcon className="text-primary" />
-          <blockquote className="mt-4 text-quote">
-            The lessons are short enough to fit into my week, but detailed enough that I actually
-            leave with something I can use.
-          </blockquote>
+          <blockquote className="mt-4 text-quote">{testimonial.quote}</blockquote>
           <figcaption className="mt-8 flex items-center gap-4">
             <Image
-              src="/images/alex-morgan.webp"
+              src={testimonial.avatar}
               alt=""
               width={48}
               height={48}
               className="size-12 rounded-full bg-primary-light"
             />
             <span>
-              <span className="block text-base font-bold leading-[26px] lg:leading-7">Alex Morgan</span>
-              <span className="block text-body text-muted">Product Manager</span>
+              <span className="block text-base font-bold leading-[26px] lg:leading-7">
+                {testimonial.name}
+              </span>
+              <span className="block text-body text-muted">{testimonial.role}</span>
             </span>
           </figcaption>
         </figure>
@@ -36,7 +30,9 @@ export function Testimonial() {
           {stats.map((stat) => (
             <div key={stat.label} className="flex flex-col-reverse justify-end">
               <dt className="mt-1 text-body text-subtle">{stat.label}</dt>
-              <dd className="text-h1 text-primary lg:text-[4rem] lg:leading-[4.375rem]">{stat.value}</dd>
+              <dd className="text-h1 text-primary lg:text-[4rem] lg:leading-[4.375rem]">
+                {stat.value}
+              </dd>
             </div>
           ))}
         </dl>

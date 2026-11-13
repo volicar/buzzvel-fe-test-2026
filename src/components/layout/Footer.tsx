@@ -1,33 +1,5 @@
-import { Logo } from "./icons";
-
-const groups = [
-  {
-    title: "Explore",
-    links: [
-      { label: "Courses", href: "#courses" },
-      { label: "Categories", href: "#courses" },
-      { label: "Instructors", href: "#community" },
-      { label: "For Teams", href: "#featured" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "About", href: "#how-it-works" },
-      { label: "Careers", href: "#contact" },
-      { label: "Journal", href: "#community" },
-    ],
-  },
-  {
-    title: "Support",
-    links: [
-      { label: "Help Center", href: "#contact" },
-      { label: "Contact", href: "#contact" },
-      { label: "Terms", href: "#main" },
-      { label: "Privacy", href: "#main" },
-    ],
-  },
-];
+import { Logo } from "@/components/ui/icons";
+import { footerGroups } from "@/data/content";
 
 export function Footer() {
   return (
@@ -41,7 +13,7 @@ export function Footer() {
             </p>
           </div>
 
-          {groups.map((group) => (
+          {footerGroups.map((group) => (
             <nav key={group.title} aria-label={group.title}>
               <h2 className="text-overline text-mist">{group.title}</h2>
               <ul className="mt-4 flex flex-col gap-3">

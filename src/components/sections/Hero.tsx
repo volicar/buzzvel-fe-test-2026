@@ -1,7 +1,8 @@
 import Image from "next/image";
-import { StarIcon } from "./icons";
-
-const learners = ["/images/learner-1.webp", "/images/learner-2.webp", "/images/learner-3.webp"];
+import { AvatarStack } from "@/components/ui/AvatarStack";
+import { ButtonLink } from "@/components/ui/ButtonLink";
+import { StarIcon } from "@/components/ui/icons";
+import { learnerAvatars } from "@/data/content";
 
 export function Hero() {
   return (
@@ -15,26 +16,13 @@ export function Hero() {
             business and more — one focused lesson at a time.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href="#courses" className="btn btn-primary">
-              Explore courses
-            </a>
-            <a href="#how-it-works" className="btn btn-outline">
+            <ButtonLink href="#courses">Explore courses</ButtonLink>
+            <ButtonLink href="#how-it-works" variant="outline">
               See how it works
-            </a>
+            </ButtonLink>
           </div>
           <div className="mt-8 flex items-center gap-3">
-            <div className="flex">
-              {learners.map((src) => (
-                <Image
-                  key={src}
-                  src={src}
-                  alt=""
-                  width={32}
-                  height={32}
-                  className="-ml-2 size-8 rounded-full border-2 border-cream bg-primary-light first:ml-0"
-                />
-              ))}
-            </div>
+            <AvatarStack avatars={learnerAvatars} />
             <p className="text-body text-muted">
               <strong className="font-bold text-ink">Trusted by 24,000+</strong> learners
             </p>
@@ -56,6 +44,7 @@ export function Hero() {
               alt="Person focused on learning at their laptop"
               fill
               preload
+              fetchPriority="high"
               sizes="(min-width: 1024px) 500px, (min-width: 402px) 346px, 90vw"
               className="object-cover"
             />

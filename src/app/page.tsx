@@ -1,13 +1,13 @@
-import { Categories } from "@/components/Categories";
-import { Contact } from "@/components/Contact";
-import { FeaturedCourse } from "@/components/FeaturedCourse";
-import { FinalCta } from "@/components/FinalCta";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
-import { Hero } from "@/components/Hero";
-import { HowItWorks } from "@/components/HowItWorks";
-import { People } from "@/components/People";
-import { Testimonial } from "@/components/Testimonial";
+import { Categories } from "@/components/sections/Categories";
+import { Contact } from "@/components/sections/Contact";
+import { FeaturedCourse } from "@/components/sections/FeaturedCourse";
+import { FinalCta } from "@/components/sections/FinalCta";
+import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
+import { Hero } from "@/components/sections/Hero";
+import { HowItWorks } from "@/components/sections/HowItWorks";
+import { People } from "@/components/sections/People";
+import { Testimonial } from "@/components/sections/Testimonial";
 
 export default function Home() {
   return (
