@@ -58,6 +58,7 @@ export function ContactForm() {
     setStatus("sending");
     await new Promise((resolve) => setTimeout(resolve, 800));
     form.reset();
+    setErrors({});
     setStatus("sent");
   };
 

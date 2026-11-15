@@ -17,7 +17,7 @@ type FormFieldProps = {
 };
 
 const controlClass =
-  "w-full rounded-lg border border-line bg-cream px-4 text-body text-ink transition-colors placeholder:text-subtle hover:border-subtle focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 aria-invalid:border-red-600";
+  "w-full rounded-lg border border-line bg-cream px-4 text-body text-ink transition-colors placeholder:text-muted hover:border-subtle focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 aria-invalid:border-red-600";
 
 export function FormField({
   label,

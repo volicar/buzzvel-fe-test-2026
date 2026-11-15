@@ -65,7 +65,7 @@ public/images/              photos exported from Figma (WebP) and the CTA decora
 - Step 2 copy differs between desktop ("who use these skills") and mobile ("who actually use these skills"). I used the desktop copy.
 - The mobile contact form is written in Portuguese while the rest of the page and the desktop form are in English. I used the English copy on every breakpoint.
 - The "Meet international students & teachers" paragraph is lorem ipsum in the design. I kept it as is.
-- Three text colors in the design sit at a 4.45:1 contrast ratio, just under WCAG AA (4.5:1): the step labels and the "Up to 24 hours" text on the cream background, and the "Browse all courses" link on blue. I moved each one step up in the same palette (`text-secondary` and white) so the page passes AA.
+- Three text colors in the design sit at a 4.45:1 contrast ratio, just under WCAG AA (4.5:1): the step labels and the "Up to 24 hours" text on the cream background, and the "Browse all courses" link on blue. I moved each one step up in the same palette (`text-muted` and white) so the page passes AA.
 - That same section contains leftover template layers (Roboto "Caption", "Headline Two"). I treated them as unused and left them out.
 
 ## Known gaps
