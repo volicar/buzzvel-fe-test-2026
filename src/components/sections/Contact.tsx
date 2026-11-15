@@ -10,7 +10,7 @@ export function Contact() {
       aria-labelledby="contact-title"
       className="section-y border-y border-line bg-white"
     >
-      <div className="wrap flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
+      <div className="wrap flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
         <div className="reveal flex flex-col gap-8 lg:w-[480px] lg:shrink lg:gap-10">
           <SectionHeading id="contact-title" eyebrow="Contact" title="Get in touch">
             <p className="mt-4 text-body text-muted lg:text-lg lg:leading-7">

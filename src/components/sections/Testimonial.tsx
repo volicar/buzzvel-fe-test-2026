@@ -5,7 +5,7 @@ import { stats, testimonial } from "@/data/content";
 export function Testimonial() {
   return (
     <section aria-label="What learners say" className="section-y bg-white">
-      <div className="wrap flex flex-col gap-[60px] lg:flex-row lg:items-start lg:justify-between">
+      <div className="wrap flex flex-col gap-[60px] lg:flex-row lg:items-center lg:justify-between">
         <figure className="reveal max-w-[600px]">
           <QuoteIcon className="text-primary" />
           <blockquote className="mt-4 text-quote">{testimonial.quote}</blockquote>

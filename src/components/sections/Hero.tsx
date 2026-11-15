@@ -21,7 +21,7 @@ export function Hero() {
               See how it works
             </ButtonLink>
           </div>
-          <div className="mt-8 flex items-center gap-3">
+          <div className="mt-8 flex items-center justify-center gap-3 sm:justify-start">
             <AvatarStack avatars={learnerAvatars} />
             <p className="text-body text-muted">
               <strong className="font-bold text-ink">Trusted by 24,000+</strong> learners

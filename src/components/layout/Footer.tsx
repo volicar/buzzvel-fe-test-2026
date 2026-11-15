@@ -32,7 +32,7 @@ export function Footer() {
           ))}
         </div>
 
-        <p className="mt-12 border-t border-muted pt-6 text-[13px] leading-[19.5px] text-mist lg:mt-16">
+        <p className="mt-9 border-t border-muted pt-6 text-center text-[13px] leading-[19.5px] text-mist lg:mt-16 lg:text-left">
           © 2026 Luma Learning
         </p>
       </div>

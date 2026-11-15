@@ -129,7 +129,7 @@ export const stats: Stat[] = [
 
 export const photoColumns: PhotoColumn[] = [
   {
-    className: "w-[26.5%] items-end pt-[12.3%]",
+    className: "w-[26.5%] items-end pt-[20.6%]",
     photos: [
       {
         src: "/images/people-1.webp",
@@ -174,7 +174,7 @@ export const photoColumns: PhotoColumn[] = [
     ],
   },
   {
-    className: "w-[19.75%]",
+    className: "w-[19.75%] pt-[6.6%]",
     photos: [
       {
         src: "/images/people-6.webp",
@@ -200,7 +200,7 @@ export const photoColumns: PhotoColumn[] = [
     ],
   },
   {
-    className: "w-[24.7%] items-start",
+    className: "w-[24.7%] items-start pt-[16.6%]",
     photos: [
       {
         src: "/images/people-9.webp",
