@@ -1,12 +1,8 @@
 # Luma — Buzzvel Front-End Test 2026
 
-Landing page for "luma.", built from the Figma file provided in the Buzzvel Front-End Engineer coding challenge.
+Landing page built from the Figma file of the Buzzvel Front-End Engineer coding challenge, with Next.js 16 (App Router), TypeScript and Tailwind CSS v4. No other runtime dependencies.
 
 Live preview: https://buzzvel-fe-test-chi.vercel.app
-
-## Stack
-
-Next.js 16 (App Router), React 19, TypeScript and Tailwind CSS v4. No other runtime dependencies: the form, menu, icons and animations are written by hand.
 
 ## Run
 
@@ -21,45 +17,33 @@ npm run lint
 
 ## Key decisions
 
-- **Design tokens in one place.** Colors, shadows, type scale and button styles live in `src/app/globals.css` (Tailwind v4 `@theme` and `@utility`). Type styles mirror the Figma text styles and switch at the `lg` breakpoint.
-- **Reusable components with typed props.** Anything that repeats in the design is a component in `src/components/ui`. Sections only compose them.
-- **Content separated from markup.** Repeated copy and lists live in `src/data/content.ts` with exported types, standing in for a CMS or API.
-- **Server components by default.** Only the header (mobile menu) and the contact form ship client-side JavaScript.
-- **Responsive.** Mobile layout up to 1023px, desktop from 1024px. In between, grids go to two columns and large headings scale with `clamp()`.
-- **Performance.** Images are WebP served through `next/image` with explicit `sizes`, and the hero image loads eagerly as the LCP element. Fonts are self-hosted with `next/font`, CSS is inlined and the build targets modern browsers only.
-- **Motion.** Entrance animations use CSS scroll-driven animations as progressive enhancement and are disabled under `prefers-reduced-motion`.
-- **Contact form.** Constraint Validation API with custom rendering: inline errors in English, linked with `aria-describedby`, focus moves to the first invalid field. There is no backend, so submission is simulated.
-- **Accessibility.** Semantic landmarks, one `h1`, skip link, visible focus styles, `aria-expanded`/`aria-controls` on the menu button, Escape closes the menu, descriptive `alt` text, 44px menu touch target.
-- **Not in the design.** Hover, focus, the open mobile menu, form validation states and the favicon were not designed, so I created them from the existing tokens.
+- Design tokens (colors, type scale, buttons) live in `src/app/globals.css`, repeated UI is typed components in `src/components/ui`, and content is typed mock data in `src/data/content.ts`.
+- Server components by default. Only the mobile menu and the contact form ship JavaScript.
+- One layout breakpoint at 1024px, fluid in between: two-column grids on tablet and headings sized with `clamp()`.
+- Images are WebP through `next/image`, fonts are self-hosted and CSS is inlined. Animations are CSS only and respect `prefers-reduced-motion`.
+- The form uses the Constraint Validation API, shows inline errors and moves focus to the first invalid field. Submission is simulated.
+- Accessibility: semantic landmarks, skip link, visible focus, keyboard-operable menu and descriptive `alt` text.
+- Hover, focus, open menu, validation states and the favicon are not in the design. I created them from the existing tokens.
 
-## Design inconsistencies and how I handled them
+## Design inconsistencies
 
-- Desktop labels all three steps "Step 01". I used 01, 02, 03 as in the mobile design.
-- Step 2 copy differs between desktop and mobile. I used the desktop copy.
-- The mobile contact form is in Portuguese while everything else is in English. I used English on every breakpoint.
-- The "Meet international students & teachers" paragraph is lorem ipsum. I kept it.
-- Three text colors sit at a 4.45:1 contrast ratio, just under WCAG AA. I moved each one step up in the same palette (`text-muted` and white).
-- The testimonial row and the footer link columns sit on a 1136px container that runs 16px into the right page margin. I reproduced it so positions match the design.
-- A few frames have a fixed height smaller than their own text (for example the final CTA heading), so some sections differ from Figma by 1 to 4px.
+- Desktop labels every step "Step 01" and the step 2 copy differs between breakpoints. I used 01 to 03 and the desktop copy.
+- The mobile form is in Portuguese. I used English everywhere.
+- One paragraph is lorem ipsum in the design. I kept it.
+- Three text colors miss WCAG AA by a hair (4.45:1). I moved them one step up in the palette.
+- The testimonial row and the footer columns run 16px into the right margin. I reproduced it.
 
 ## Known gaps
 
-- The photo collage keeps the desktop proportions on mobile, so that section is about 45px taller than in Figma.
-- Navigation and footer links point to sections of the page, since there are no other pages. "Log in" goes to the contact section because authentication is out of scope.
-- No automated tests. The challenge lists them as optional and I spent the time on fidelity and accessibility.
-- The header is sticky. The design does not specify this.
+- The photo collage is about 45px taller than Figma on mobile, and a few other sections differ by 1 to 4px.
+- Links point to page sections, since there are no other pages. "Log in" goes to the contact section.
+- No automated tests, which the brief lists as optional.
+- The sticky header is my choice. The design does not specify it.
 
 ## Time spent
 
-Around 7 hours: 1h reading the Figma file, 3h building the sections, 1.5h reviewing against the design, 1h refactoring into typed components, 0.5h on performance checks and this README.
+Around 7 hours.
 
 ## AI tools
 
-I used Claude Code (Anthropic) to read measurements, styles and copy from the Figma layers, export the image assets, scaffold the section components and cross-check accessibility and responsive behaviour.
-
-How I checked the result:
-
-- compared every section with the Figma frames at 1280px and 402px, checking positions and section heights against the values in Figma's properties panel;
-- ran `npm run lint`, the TypeScript check and a production build;
-- exercised the mobile menu and the form in the browser (empty, invalid and valid submissions);
-- ran Lighthouse against the deployed build: 100 / 100 / 100 / 100 on desktop and 98–99 / 100 / 100 / 100 on mobile (performance, accessibility, best practices, SEO).
+I used Claude Code (Anthropic) to read measurements and copy from Figma, export assets, scaffold the sections and cross-check accessibility. I checked the result by comparing every section with the Figma frames at 1280px and 402px, running lint, the type check and a production build, testing the menu and the form in the browser, and running Lighthouse on the deployed build (100 in every category on desktop; 98 to 99 for performance and 100 elsewhere on mobile).
