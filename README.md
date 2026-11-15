@@ -19,17 +19,6 @@ npm run build && npm start    # production build
 npm run lint
 ```
 
-## Structure
-
-```
-src/app/                  layout, metadata, icons, global styles (design tokens), page
-src/components/layout/    Header, Footer
-src/components/sections/  one component per page section
-src/components/ui/        reusable pieces (ButtonLink, SectionHeading, FormField, ...)
-src/data/content.ts       typed mock content
-public/images/            photos exported from Figma (WebP) and the CTA decoration (SVG)
-```
-
 ## Key decisions
 
 - **Design tokens in one place.** Colors, shadows, type scale and button styles live in `src/app/globals.css` (Tailwind v4 `@theme` and `@utility`). Type styles mirror the Figma text styles and switch at the `lg` breakpoint.
