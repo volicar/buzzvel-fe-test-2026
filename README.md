@@ -71,7 +71,7 @@ public/images/              photos exported from Figma (WebP) and the CTA decora
 ## Known gaps
 
 - The photo collage keeps the desktop proportions on mobile. The mobile design crops each photo slightly shorter, so that section is a little taller than in Figma.
-- Navigation and footer links point to sections of the page, since there are no other pages.
+- Navigation and footer links point to sections of the page, since there are no other pages. This includes "Log in", which goes to the contact section because authentication is out of scope.
 - No automated tests. The challenge lists them as optional and I chose to spend the time on fidelity and accessibility.
 - The header is sticky. The design does not specify this behaviour.
 
