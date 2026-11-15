@@ -26,10 +26,10 @@ export function Testimonial() {
           </figcaption>
         </figure>
 
-        <dl className="reveal grid grid-cols-3 gap-2 lg:w-[401px] lg:shrink-0 lg:grid-cols-1 lg:gap-5 lg:border-l lg:border-line lg:pl-12">
+        <dl className="reveal grid grid-cols-3 gap-2 lg:-mr-4 lg:w-[401px] lg:shrink-0 lg:grid-cols-1 lg:gap-5 lg:border-l lg:border-line lg:pl-12">
           {stats.map((stat) => (
             <div key={stat.label} className="flex flex-col-reverse justify-end">
-              <dt className="mt-1 text-body text-subtle">{stat.label}</dt>
+              <dt className="mt-1 text-body text-subtle lg:mt-px">{stat.label}</dt>
               <dd className="text-h1 text-primary lg:text-[4rem] lg:leading-[4.375rem]">
                 {stat.value}
               </dd>

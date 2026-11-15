@@ -18,7 +18,7 @@ export function CategoryCard({ position, title, description, href }: CategoryCar
         <h3 className="mt-5 text-h5">{title}</h3>
         <p className="mt-3 text-body text-subtle">{description}</p>
       </div>
-      <p className="mt-6 flex items-center gap-2 text-body font-bold">
+      <p className="mt-6 flex items-center gap-2 text-body leading-5 font-bold">
         Explore
         <span className="sr-only"> {title}</span>
         <ArrowIcon className="transition-transform duration-200 motion-safe:group-hover:translate-x-1" />

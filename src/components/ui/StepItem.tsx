@@ -32,7 +32,7 @@ export function StepItem({ position, title, description, icon }: StepItemProps) 
       </span>
       <p className="mt-6 text-overline text-muted">Step {String(position).padStart(2, "0")}</p>
       <h3 className="mt-2 text-h5">{title}</h3>
-      <p className="mt-3 text-sub2 text-muted">{description}</p>
+      <p className="mt-3.5 text-sub2 text-muted lg:mt-3">{description}</p>
     </li>
   );
 }
